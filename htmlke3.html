@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Nilai Anda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-right: 5px;
+        }
+        #nilaiAkhir, #nilaiHuruf {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalkulator Perhitungan Nilai</h1>
+    <p>Masukkanlah Nilai Anda:</p>
+    <form>
+        <label>Presensi: <input type="number" id="presensi" value="0" min="0" max="100"></label>
+        <label>Nilai Tugas: <input type="number" id="tugas" value="0" min="0" max="100"></label>
+        <label>Nilai UTS: <input type="number" id="uts" value="0" min="0" max="100"></label>
+        <label>Nilai UAS: <input type="number" id="uas" value="0" min="0" max="100"></label>
+        
+        <button type="button" onclick="hitungNilai()">hitung</button>
+        <button type="button" onclick="resetForm()">cancel</button>
+    </form>
+    
+    <p>Nilai Anda: <span id="nilaiAkhir">0</span></p>
+    <p>Dalam Angka: <span id="nilaiHuruf">-</span></p>
+
+    <script>
+        function hitungNilai() {
+            let presensi = parseFloat(document.getElementById("presensi").value) || 0;
+            let tugas = parseFloat(document.getElementById("tugas").value) || 0;
+            let uts = parseFloat(document.getElementById("uts").value) || 0;
+            let uas = parseFloat(document.getElementById("uas").value) || 0;
+            
+            // Menghitung Nilai Akhir
+            let nilaiAkhir = (presensi * 0.1) + (tugas * 0.2) + (uts * 0.3) + (uas * 0.4);
+            document.getElementById("nilaiAkhir").innerText = Math.round(nilaiAkhir);
+            
+            // Menentukan grade nilai dengan grade huruf
+            let nilaiHuruf;
+            if (nilaiAkhir > 80) {
+                nilaiHuruf = "A";
+            } else if (nilaiAkhir > 75) {
+                nilaiHuruf = "B+";
+            } else if (nilaiAkhir > 70) {
+                nilaiHuruf = "B";
+            } else if (nilaiAkhir > 65) {
+                nilaiHuruf = "B-";
+            } else if (nilaiAkhir > 60) {
+                nilaiHuruf = "C+";
+            } else if (nilaiAkhir > 55) {
+                nilaiHuruf = "C";
+            } else if (nilaiAkhir > 50) {
+                nilaiHuruf = "C-";
+            } else if (nilaiAkhir > 30) {
+                nilaiHuruf = "D";
+            } else {
+                nilaiHuruf = "E";
+            }
+            document.getElementById("nilaiHuruf").innerText = nilaiHuruf;
+        }
+
+        function resetForm() {
+            document.getElementById("presensi").value = "0";
+            document.getElementById("tugas").value = "0";
+            document.getElementById("uts").value = "0";
+            document.getElementById("uas").value = "0";
+            document.getElementById("nilaiAkhir").innerText = "0";
+            document.getElementById("nilaiHuruf").innerText = "-";
+        }
+    </script>
+</body>
+</html>
