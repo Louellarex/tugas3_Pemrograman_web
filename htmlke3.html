@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perhitungan Nilai Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Perhitungan Nilai</h1>
+    <h2>Masukkan Nilai Anda</h2> <!-- Judul -->
+
+    <div class="form-group">
+      <label for="presensi">Presensi Kehadiran (10%):</label>
+      <input type="number" id="presensi" min="0" max="100" required>
+    </div>
+
+    <div class="form-group">
+      <label for="tugas">Tugas (20%):</label>
+      <input type="number" id="tugas" min="0" max="100" required>
+    </div>
+
+    <div class="form-group">
+      <label for="uts">UTS (30%):</label>
+      <input type="number" id="uts" min="0" max="100" required>
+    </div>
+
+    <div class="form-group">
+      <label for="uas">UAS (40%):</label>
+      <input type="number" id="uas" min="0" max="100" required>
+    </div>
+
+    <button id="hitungButton">Hitung Nilai</button>
+    <button id="clearButton">Clear Semua Nilai</button> <!-- Tombol Clear -->
+
+    <table id="resultTable" class="result-table">
+      <thead>
+        <tr>
+          <th>Komponen</th>
+          <th>Nilai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Presensi</td>
+          <td id="nilaiPresensi">-</td>
+        </tr>
+        <tr>
+          <td>Tugas</td>
+          <td id="nilaiTugas">-</td>
+        </tr>
+        <tr>
+          <td>UTS</td>
+          <td id="nilaiUTS">-</td>
+        </tr>
+        <tr>
+          <td>UAS</td>
+          <td id="nilaiUAS">-</td>
+        </tr>
+        <tr>
+          <td>Nilai Akhir</td>
+          <td id="nilaiAkhir">-</td>
+        </tr>
+        <tr>
+          <td>Nilai Anda</td>
+          <td id="hurufMutu">-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
